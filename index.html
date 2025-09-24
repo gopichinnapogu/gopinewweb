@@ -504,16 +504,17 @@
   </footer>
 
   <script>
-    // Visitor Counter using countapi
-    const counterUrl = "https://api.countapi.xyz/hit/hosanna-portfolio/visitors";
+  // Always use HTTPS
+  const counterUrl = "https://api.countapi.xyz/hit/hosanna-portfolio/visitors";
 
-    fetch(counterUrl)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("visitor-count").innerText = data.value;
-      })
-      .catch(err => console.error("Error fetching visitor count:", err));
-  </script>
+  fetch(counterUrl, { cache: "no-store" }) // no cache
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("visitor-count").innerText = data.value;
+    })
+    .catch(err => console.error("Error fetching visitor count:", err));
+</script>
+
 
 
   <!-- <footer class="footer section" id="contact">
