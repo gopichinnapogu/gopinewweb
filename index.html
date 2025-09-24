@@ -501,7 +501,20 @@
     </div>
     <p>&#169; Published by HosannaChinnapogu</p>
   </footer>
+  <p>👀 Visitors: <span id="visitor-count">0</span></p>
   <!--===== MAIN JS =====-->
+  <script>
+  // Replace with your own namespace and key (so counts are unique to your site)
+  const counterUrl = "https://api.countapi.xyz/hit/hosanna-portfolio.com/visits";
+
+  fetch(counterUrl)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("visitor-count").innerText = data.value;
+    })
+    .catch(err => console.error("Error fetching visitor count:", err));
+</script>
+
   <script src="assets/js/main.js"></script>
 </body>
 
